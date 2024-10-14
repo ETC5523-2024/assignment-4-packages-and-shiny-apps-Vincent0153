@@ -29,3 +29,5 @@ index_picks$FINALS <- as.numeric(index_picks$FINALS)
 march_madness_dataset <- index_picks |>
   select(YEAR,TEAMNO,TEAM,SEED,ROUND,POWER,FINALS) |>
   filter(YEAR >= 2016)
+
+usethis::use_data(march_madness_dataset, overwrite = TRUE)

@@ -25,13 +25,13 @@ The goal of marchmadness is to analyze each team's performance and determine whe
 You can install the development version of marchmadness from [GitHub](https://github.com/ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153/tree/main/marchmadness) with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153/tree/main/marchmadness")
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153", subdir = "marchmadness")
+
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to solve a common problem. You can see the dataset by using following code.
 
 ```{r example}
 library(marchmadness)

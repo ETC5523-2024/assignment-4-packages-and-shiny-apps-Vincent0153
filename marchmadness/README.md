@@ -18,13 +18,13 @@ You can install the development version of marchmadness from
 with:
 
 ``` r
-# install.packages("pak")
-pak::pak("ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153/tree/main/marchmadness")
+remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153", subdir = "marchmadness")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to solve a common problem.
+You can see the dataset by using following code.
 
 ``` r
 library(marchmadness)

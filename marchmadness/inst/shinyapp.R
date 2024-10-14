@@ -1,19 +1,20 @@
 library(shiny)
 library(ggplot2)
 library(dplyr)
+library(DT)
 library(marchmadness)
 
-# Convert some variables to integer
+# Convert variables to integer
 march_madness_dataset$YEAR <- as.integer(march_madness_dataset$YEAR)
 march_madness_dataset$TEAMNO <- as.integer(march_madness_dataset$TEAMNO)
 march_madness_dataset$SEED <- as.integer(march_madness_dataset$SEED)
 march_madness_dataset$ROUND <- as.integer(march_madness_dataset$ROUND)
 
-# Create a ui
+# Create UI
 ui <- fluidPage(
   titlePanel("March Madness Data Explorer"),
 
-  # Customize the page
+  # Custom styling
   tags$head(
     tags$style(HTML("
       body { background-color: #f4f4f4; }
@@ -28,10 +29,12 @@ ui <- fluidPage(
                   choices = unique(march_madness_dataset$YEAR),
                   selected = max(march_madness_dataset$YEAR)),
 
-      # Selecting seed range using the slider
+      # Seed range slider
       sliderInput("seed_range", "Select Seed Range:",
-                  min = min(march_madness_dataset$SEED), max = max(march_madness_dataset$SEED),
-                  value = c(min(march_madness_dataset$SEED), max(march_madness_dataset$SEED)), step = 1),
+                  min = min(march_madness_dataset$SEED),
+                  max = max(march_madness_dataset$SEED),
+                  value = c(min(march_madness_dataset$SEED), max(march_madness_dataset$SEED)),
+                  step = 1),
 
       # Number of teams to display
       numericInput("team_count", "Number of Teams to Display:",
@@ -39,8 +42,8 @@ ui <- fluidPage(
     ),
 
     mainPanel(
-      # Print the table
-      tableOutput("filteredTable"),
+      # Interactive table output
+      DTOutput("interactiveTable"),
 
       # Field descriptions
       h4("Field Descriptions"),
@@ -54,28 +57,36 @@ ui <- fluidPage(
       # Instructions
       h4("How to Use It?"),
       p("Use the filters on the left to explore the data. For example, you can filter by year and seed range."),
-      p("The table shows the selected teams, their seeds, performances(including historical ones),
-        and predicted chance of reaching the finals(only for year 2024).")
+      p("Click on column headers to sort by SEED, POWER, or FINALS."),
+      p("Use the searching bar to look for the data you want")
     )
   )
 )
 
-# Create a server
+# Create Server
 server <- function(input, output) {
   # Reactive data filtering
   filtered_data <- reactive({
     march_madness_dataset %>%
-      dplyr::filter(YEAR == input$year,
-                    SEED >= input$seed_range[1],
-                    SEED <= input$seed_range[2]) %>%
+      filter(YEAR == input$year,
+             SEED >= input$seed_range[1],
+             SEED <= input$seed_range[2]) %>%
       head(input$team_count)
   })
 
-  # Render the filtered table
-  output$filteredTable <- renderTable({
-    filtered_data()
+  # Render the interactive table
+  output$interactiveTable <- renderDT({
+    datatable(
+      filtered_data(),
+      options = list(
+        pageLength = 10,  # Display 10 rows per page
+        order = list(list(0, 'asc'))  # Default sorting by the first column (YEAR)
+      ),
+      rownames = FALSE  # Hide row numbers
+    )
   })
 }
 
-# Activate shiny App
+# Activate the Shiny App
 shinyApp(ui = ui, server = server)
+

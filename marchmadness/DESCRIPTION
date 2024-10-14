@@ -1,10 +1,9 @@
 Package: marchmadness
-Title: What the Package Does (One Line, Title Case)
+Title: Package for analyzing NCAA: March Madness
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Jiwen", "Zhou", , "jzho0153@student.monash.edu", role = c("aut", "cre"))
+Description: This package contains the NCAA March Madness data of different college basketball teams from year 2016 to year 2024, including 7 variables.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,6 +11,10 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 LazyData: true
+Imports: 
+    dplyr,
+    ggplot2,
+    shiny
 Suggests: 
     knitr,
     rmarkdown

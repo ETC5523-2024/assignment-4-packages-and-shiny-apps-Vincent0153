@@ -32,8 +32,7 @@ data("march_madness_dataset")
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+You can see the summary of the dataset using the following code:
 
 ``` r
 summary(march_madness_dataset)
@@ -55,12 +54,6 @@ summary(march_madness_dataset)
 #>                                  NA's   :448
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+## Shiny
 
-You can also embed plots, for example:
-
-<img src="man/figures/README-power-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+You are also able to use the ShinyApp.

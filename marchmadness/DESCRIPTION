@@ -14,8 +14,10 @@ LazyData: true
 Imports: 
     dplyr,
     ggplot2,
-    shiny
+    shiny,
+    DT
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    roxygen2
 VignetteBuilder: knitr

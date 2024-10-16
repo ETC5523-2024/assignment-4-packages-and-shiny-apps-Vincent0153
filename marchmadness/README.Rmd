@@ -47,6 +47,12 @@ summary(march_madness_dataset)
 
 ## Shiny
 
-You are also able to use the ShinyApp.
+You are also able to use the ShinyApp using the package. You can see different shiny apps through two different functions below.
+
+``` r
+marchmadness::run_app() #OR
+marchmadness::run_better_app()
+```
+
 
 

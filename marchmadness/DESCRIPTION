@@ -19,5 +19,6 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    roxygen2
+    roxygen2,
+    pkgdown
 VignetteBuilder: knitr

@@ -3,4 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   march_madness: march_madness.html
-last_built: 2024-10-20T10:18Z
+last_built: 2024-10-20T11:51Z
+urls:
+  reference: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Vincent0153/reference
+  article: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Vincent0153/articles

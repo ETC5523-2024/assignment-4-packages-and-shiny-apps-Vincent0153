@@ -64,5 +64,5 @@ marchmadness::run_app() #OR
 marchmadness::run_better_app()
 ```
 
-You can see the pkgdown site through the following link:
-<https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Vincent0153/>
+You can see the pkgdown site through the following link
+[marchmadness_vignette](https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-Vincent0153/)

@@ -18,6 +18,7 @@ You can install the development version of marchmadness from
 with:
 
 ``` r
+#install.packages("remotes")
 remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-Vincent0153", subdir = "marchmadness")
 ```
 
